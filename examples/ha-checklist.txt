@@ -1,0 +1,29 @@
+=== RuView → Home Assistant checklist ===
+Time: 2026-11-10 09:33 CST
+
+1. Home Assistant Core ≥ 2025.5 (upstream tested matrix).
+2. Install Mosquitto add-on (or other broker) on the LAN; enable MQTT integration.
+3. Path A/B sensing server must already receive CSI (simulated alone will publish synthetic entities — do not treat as medical/safety truth).
+4. Prefer docker --net=host on Linux when bridging to HA MQTT, or publish MQTT from the same LAN namespace.
+5. Required env for Docker publisher path:
+     RUVIEW_API_TOKEN=...          # still required by entrypoint
+     CSI_SOURCE=esp32              # real nodes for useful HA automations
+     RUVIEW_UDP_ALLOW=<cidr|ip>    # or RUVIEW_UDP_INSECURE_LAN=true on trusted LAN
+     MQTT host/user + MQTT_PASSWORD via --mqtt-password-env
+6. Persist --data-dir / Docker volume so mqtt_client_id (device ids) survive restarts.
+7. Expect ~15 MQTT entities per node (privacy-mode drops biometrics).
+8. Vitals stay unavailable until calibration + single occupant + quality gate.
+9. SIGTERM does NOT publish offline / no MQTT LWT — entities may look stale until restart.
+10. Full operator guide: upstream docs/integrations/home-assistant.md
+
+Example (fill IPs yourself; do not commit secrets):
+  export RUVIEW_API_TOKEN=$(openssl rand -hex 32)
+  export MQTT_PASSWORD='...'
+  docker run --rm --net=host \
+    -e RUVIEW_API_TOKEN -e MQTT_PASSWORD \
+    -e CSI_SOURCE=esp32 -e RUVIEW_UDP_ALLOW=192.168.1.0/24 \
+    ${RUVIEW_DOCKER_IMAGE:-ruvnet/wifi-densepose:sha-a175477} \
+    --source esp32 --mqtt --mqtt-host 192.168.1.10 \
+    --mqtt-username homeassistant --mqtt-password-env MQTT_PASSWORD
+
+Details: docs/ha-integration.md

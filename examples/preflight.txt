@@ -1,0 +1,30 @@
+=== RuView CN preflight (Docker simulated / ESP32 / HA) ===
+
+Host: Linux x86_64
+Time: 2026-11-10 09:34 CST
+
+✅ CPU arch x86_64
+✅ CPUs 8
+✅ RAM available ~12 GiB (total ~15 GiB) — Docker sim asks ≥4 GiB total
+✅ Disk free ~108 GB (≥5 recommended)
+✅ git present
+✅ curl present
+✅ jq present
+✅ openssl present
+✅ python3: Python 3.13.5
+❌ Docker Engine missing — path A (simulated) needs Docker 20+
+⚠️  esptool not installed — path B: pip install 'esptool>=5.3' (C5 needs ≥5.3; measured 5.6.0)
+⚠️  ESP-IDF not on PATH — path B can use prebuilt release bundles or espressif/idf Docker build
+⚠️  no /dev/ttyUSB* or /dev/ttyACM* — expected when flashing ESP32 on this host
+✅ ports 3000/tcp 3001/tcp 5005/udp look free (best-effort)
+
+--- network (best-effort) ---
+✅ Reachable: GitHub RuView (HTTP 200)
+✅ Reachable: Docker Hub tag sha-a175477 (HTTP 200)
+✅ Reachable: Hugging Face pretrained (HTTP 200)
+✅ Reachable: PyPI ruview (HTTP 200)
+
+=== summary: 14 ok / 3 warn / 1 bad ===
+Path A needs Docker + RUVIEW_API_TOKEN + CSI_SOURCE=simulated.
+Path B needs ESP32-S3/C6 (+ CSI) and UDP allowlist. Path C needs MQTT broker + HA 2025.5+.
+preflight_exit=1

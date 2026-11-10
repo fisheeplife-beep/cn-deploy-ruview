@@ -1,0 +1,9 @@
+.env
+.env.*
+!.env.example
+local/.env
+local/*.token
+data/
+*.log
+.DS_Store
+*.kubeconfig

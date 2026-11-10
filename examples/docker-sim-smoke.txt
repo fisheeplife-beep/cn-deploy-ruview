@@ -1,0 +1,8 @@
+=== docker-sim smoke 2026-11-10 09:33 CST ===
+Status: Not verified
+Reason: Docker Engine not installed on author box (command -v docker → empty).
+Intended commands:
+  ./scripts/docker-sim-up.sh
+  ./scripts/docker-sim-smoke.sh
+Pinned image: ruvnet/wifi-densepose:sha-a175477
+Digest (index): sha256:20ee390719515014c1dd57dd4838ea4f28ef4af7852868cd5f73dc3d76408eff

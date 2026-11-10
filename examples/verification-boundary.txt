@@ -1,0 +1,28 @@
+=== verification boundary (author box) ===
+Date: 2026-11-10 Asia/Shanghai (CST, UTC+8)
+Host: Linux x86_64, 8 CPU, ~15 GiB RAM, no Docker Engine, no ESP32 serial
+
+Confirmed:
+- Upstream ruvnet/RuView license MIT
+- Source pin tag v3628 → commit e24be921944ed9cb9f5eea041313982f732703d8
+  (git describe may also show v3627; both tags share the same commit)
+- Docker Hub tag sha-a175477 reachable (index digest sha256:20ee3907…)
+- ESP32 firmware release v0.8.18-esp32 assets listed via gh
+- Network probes: GitHub / Hub API / HF / PyPI / Espressif docs HTTP OK
+- Shallow clone via scripts/clone-upstream.sh
+- Upstream ./verify (Python proof pipeline) ran on author box — see upstream-verify.txt
+
+Not verified on author box:
+- Path A: docker pull + CSI_SOURCE=simulated container + /health smoke
+- Path B: ESP32-S3/C6 flash, provision, live UDP CSI ingest
+- Path C: Home Assistant MQTT auto-discovery entities
+- Sensing accuracy / medical claims (not claimed)
+
+Differentiation vs third-party ZH guides:
+- Document RUVIEW_API_TOKEN (exit 64), RUVIEW_UDP_ALLOW (ADR-296),
+  explicit CSI_SOURCE=simulated (issue #937), HA MQTT pitfalls.
+
+Upstream ./verify on author box (shallow v3628):
+- PASS Phase 1 (v1 pipeline hash) + Phase 2 (no rand in prod)
+- FAIL/SKIP Rust crate builds + Docker phases (expected without cargo artifacts / Docker)
+- Do not treat OVERALL FAIL as "RuView is broken"; it means this companion host did not reproduce the full published evidence matrix.

@@ -1,0 +1,30 @@
+=== ESP32 firmware release v0.8.18-esp32 ===
+title:	ESP32 firmware v0.8.18-esp32
+tag:	v0.8.18-esp32
+draft:	false
+prerelease:	true
+immutable:	false
+author:	github-actions[bot]
+created:	2026-11-09T21:36:17Z
+published:	2026-11-09T22:21:11Z
+url:	https://github.com/ruvnet/RuView/releases/tag/v0.8.18-esp32
+asset:	esp32-csi-node-firmware-4mb.tar.gz
+asset:	esp32-csi-node-firmware-8mb.tar.gz
+asset:	esp32-csi-node-firmware-c5-4mb.tar.gz
+asset:	esp32-csi-node-firmware-c6-4mb.tar.gz
+asset:	SHA256SUMS.txt
+--
+Exact-run ESP32-S3 display 8 MB, ESP32-S3 headless 4 MB, ESP32-C6 4 MB, and ESP32-C5 4 MB firmware bundles.
+Verify each archive against `SHA256SUMS.txt` before flashing.
+CI builds and host tests verify software behavior, not target hardware.
+This prerelease has no new physical-board qualification or sensing-accuracy claim.
+Select the matching board configuration using firmware/esp32-csi-node/README.md.
+
+esp32-csi-node-firmware-4mb.tar.gz	664111	https://github.com/ruvnet/RuView/releases/download/v0.8.18-esp32/esp32-csi-node-firmware-4mb.tar.gz
+esp32-csi-node-firmware-8mb.tar.gz	812377	https://github.com/ruvnet/RuView/releases/download/v0.8.18-esp32/esp32-csi-node-firmware-8mb.tar.gz
+esp32-csi-node-firmware-c5-4mb.tar.gz	698639	https://github.com/ruvnet/RuView/releases/download/v0.8.18-esp32/esp32-csi-node-firmware-c5-4mb.tar.gz
+esp32-csi-node-firmware-c6-4mb.tar.gz	693191	https://github.com/ruvnet/RuView/releases/download/v0.8.18-esp32/esp32-csi-node-firmware-c6-4mb.tar.gz
+SHA256SUMS.txt	410	https://github.com/ruvnet/RuView/releases/download/v0.8.18-esp32/SHA256SUMS.txt
+
+Boards: ESP32-S3 (8MB display / 4MB headless), ESP32-C6, ESP32-C5 experimental.
+NOT ESP32-C3 (no CSI). Prefer release bundles over reinventing menuconfig when starting.

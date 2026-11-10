@@ -1,0 +1,10 @@
+=== RuView network probe 2026-11-10 09:33 CST ===
+GitHub RuView	HTTP 200	https://github.com/ruvnet/RuView
+GitHub raw user-guide	HTTP 200	https://raw.githubusercontent.com/ruvnet/RuView/main/docs/user-guide.md
+Docker Hub wifi-densepose	HTTP 200	https://hub.docker.com/v2/repositories/ruvnet/wifi-densepose/tags/sha-a175477
+Docker Hub registry v2	HTTP 401	https://registry-1.docker.io/v2/
+Hugging Face pretrained	HTTP 200	https://huggingface.co/ruvnet/wifi-densepose-pretrained
+PyPI ruview	HTTP 200	https://pypi.org/pypi/ruview/json
+espressif idf docs	HTTP 200	https://docs.espressif.com/projects/esp-idf/en/v5.4/
+cognitum.one	HTTP 200	https://cognitum.one
+(Docker Hub /v2 often returns 401 — reachable but needs auth token exchange)

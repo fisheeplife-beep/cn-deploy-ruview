@@ -1,0 +1,9 @@
+=== pin confirmation 2026-11-10 09:33 CST ===
+source_tag=v3628
+e24be921944ed9cb9f5eea041313982f732703d8
+v3627
+docker_image=ruvnet/wifi-densepose:sha-a175477
+docker_index_digest=sha256:20ee390719515014c1dd57dd4838ea4f28ef4af7852868cd5f73dc3d76408eff
+esp32_fw_tag=v0.8.18-esp32
+upstream_license=MIT
+MIT License
